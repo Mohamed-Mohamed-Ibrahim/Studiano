@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <link   rel  = "stylesheet" href = "style.css">
+    <link   rel  = "stylesheet" href = "ImportantWebSites/css/style.css">
+    <link   rel  = "stylesheet" href = "ImportantWebSites/bootstrap/css/all.min.css">
+    <link   rel  = "stylesheet" href = "ImportantWebSites/bootstrap/css/bootstrap.min.css">
+    <link   href = 'https://fonts.PopAiapis.com/css?family=Jockey One' rel = 'stylesheet'>
+    <script src  = "ImportantWebSites/bootstrap/js/all.min.js"></script>
+    <script src  = "ImportantWebSites/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+    <style>
+
+      #chatIcon{
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        position: relative;
+        top: 100px;
+        left: 10px;
+        cursor: pointer;
+      }
+
+    </style>
+
+  </head>
+  <!-- change -->
+  <body id="body" class="bg-black">
+    <noscript>
+      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- <div id="app"></div> -->
+    <video autoplay loop muted id="background_video">
+      <source src="light_theme_background.mp4" type="video/mp4">
+    </video>
+    
+    
+  
+    <div class="libraryBar" >
+      <div class="libraryButtons">
+        
+        <div @click="switchLibrary" class="btn btn-outline-dark" id="libraryButton" title="Library" >
+          <!-- <img width="35" height="35" src="https://img.icons8.com/sf-regular-filled/48/DD1C99D1/book.png" alt="book"/> -->
+          <img width="35" height="35" src="https://img.icons8.com/sf-regular-filled/48/71717199/book.png" alt="book"/>
+        </div>
+      </div>
+      <div id="library" v-show="this.librarySwitch"></div>
+      <!--  -->
+    </div>
+
+    <div class="channelsBar">
+    
+          <!-- change -->
+      
+        <div class="channels" id="ch2">
+          <img style="width: 40px; height: 40px; border-radius: 50%; opacity: 0.75;" src="C:\Users\PC\Documents\hci milestone 2\userpage - Copy\public\WhatsApp Image 2023-12-29 at 00.57.15_3a6a3196.jpg">
+        </div>
+    
+        <div class="channels" id="ch1" @click="switchChat">
+            <h1>CS</h1>
+        </div>
+        <div class="channels" id="ch3" @click="switchNotifications">
+          <div>
+            <i class="fa-solid fa-bell fa-3x" id="notificationIcon" style="color: #1b2b47;"></i>
+          </div>
+        </div>
+        <img width="48" height="48" src="https://img.icons8.com/parakeet-line/48/exit.png" @click="logout" alt="exit"/>
+    </div>
+    <div class="chatBar" id="chat" v-show="this.chatSwitch">
+        
+    </div>
+    <div class="chatBar" id="notifications" v-show="this.notificationsSwtich">
+
+    </div>
+    <!-- change -->
+
+    <div class="optionsButton theme" @click="changeTheme"><i class="fa-solid fa-sun" id="themeButton"></i></div>
+
+    <div class="featuresButton" @click="switchFeatures" title="Time Management Tools">
+      
+      <img width="40" height="40" src="https://img.icons8.com/ios-filled/50/000000/time-management.png" alt="time-management"/>
+    </div>
+    <div class="features" id="f1" v-show="this.featuresSwitch" @click="switchTimer"><i class="fa-regular fa-clock" title="Timer"></i></div>
+    <div class="features" id="f2" v-show="this.featuresSwitch" @click="switchTodo"><i class="fa-solid fa-list" title="To-do List"></i></div>
+    <div class="features" id="f3" v-show="this.featuresSwitch" @click="switchNotes"><i class="fa-solid fa-note-sticky" title="Noteook"></i></div>
+    <div id="timer" v-show="timerSwitch"></div>
+    <div class="notes" v-show="notsSwitch">
+      <div class="cnt">
+        <input id="noteText" type="text" v-model="newNote" @keyup.enter="addNote" placeholder="Enter your note ...">
+        <button @click="addNote">Add</button>
+        <div id="trash" @click="clearNotes"><i class="fa-solid fa-trash"></i></div>
+      </div>
+      <h4 v-html="formattedNotes"></h4>
+    </div>
+    
+    <div class="todo" id="todo" v-show="todoSwitch"></div>
+    <!--  -->
+    <script src="userPageJavaScript.js"></script>
+    <div class="importantSites">
+      <important-sites></important-sites>
+    </div>
+    <script src = "ImportantWebSites/js/vue.js"></script>
+    <script src = "ImportantWebSites/js/important-sites-component.js"></script>
+
+  <script>
+      var vm = new Vue({
+
+          el: '.importantSites',
+
+          data: {
+
+          },
+
+      })
+    </script>
+
+    
+  </body>
+</html>
